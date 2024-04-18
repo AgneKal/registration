@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link rel="stylesheet" href="./css/all.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/loginSection.css">
+    <link rel="stylesheet" href="./css/dataSection.css">
+    <link rel="stylesheet" href="./css/registration.css">
+    <link rel="stylesheet" href="./css/dataTable.css">
+    <link rel="stylesheet" href="./css/dataUpdate.css">
     <script type="module" src="./dist/app.js"></script>
 </head>
 
@@ -16,7 +22,7 @@
         <img src="./images/logo.png" alt="camp logo">
     </div>
 
-    <nav class="menu">
+    <nav id="menu">
         <a href=""><i class="fa-solid fa-gear"></i></a>
         <a href=""><img src="images/user.svg" alt=""></a>
     </nav>
@@ -25,22 +31,20 @@
 
 <body>
     <section id="loginSection">
-        <div class="loginContainer">
-            <h4>Prisijunkite arba registruokitės</h4>
-            <input type="email" name="loginEmail" id="loginEmail" placeholder="El. paštas">
-            <input type="password" name="loginPassword" id="loginPassword" placeholder="Slaptažodis">
-            <div id="loginError"></div>
-            <div class="loginButtons">
-                <button class="" id="loginBtn">Prisijungti</button>
-                <button class="" id="registerBtn">Registruotis</button>
-            </div>
+        <h2>Prisijunkite arba registruokitės</h2>
+        <input type="email" name="loginEmail" id="loginEmail" placeholder="El. paštas">
+        <input type="password" name="loginPassword" id="loginPassword" placeholder="Slaptažodis">
+        <div id="loginError"></div>
+        <div class="loginButtons">
+            <button class="" id="loginBtn">Prisijungti</button>
+            <button class="" id="registerBtn">Registruotis</button>
         </div>
     </section>
     <section id="dataSection">
         <div class="mainContainer">
             <div class="leftContainer">
                 <div class="leftContainerChildInfo">
-                    <p class="title">Įveskite vaiko duomenis:</p>
+                    <h2 class="title">Įveskite vaiko duomenis:</h2>
                     <input type="text" placeholder="Vardas" id="name">
                     <input type="text" placeholder="Pavardė" id="surname">
                     <input type="number" placeholder="Gimimo metai" id="year">
@@ -51,7 +55,7 @@
                     </div>
                 </div>
                 <div class="leftContainerContactInfo">
-                    <p class="title">Įveskite kontaktinę informaciją:</p>
+                    <h2 class="title">Įveskite kontaktinę informaciją:</h2>
                     <input type="email" placeholder="El. paštas" name="email" id="email">
                     <input type="tel" placeholder="Telefono Nr." name="phone" pattern="+370-[0-9]{8}" required id="phone">
                 </div>
@@ -78,7 +82,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="resultEdit" class="resultEditCustumaize">
+                <div id="resultEdit" class="resultEditCustomize">
                     <div class="childInfoEdit">
                         <label for="nameEdit">Vardas:</label>
                         <input type="text" placeholder="Vardas" id="nameEdit">
@@ -102,8 +106,10 @@
                         <label for="phoneEdit">Telefono Nr.</label>
                         <input type="tel" placeholder="Telefono Nr." name="phone" pattern="+370-[0-9]{8}" required id="phoneEdit">
                     </div>
-                    <button id="updateRegistration">Atnaujinti</button>
-                    <button id="deleteRegistration">Ištrinti</button>
+                    <div class="editButtons">
+                        <button id="updateRegistration">Atnaujinti</button>
+                        <button id="deleteRegistration">Ištrinti</button>
+                    </div>
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 import { Registration } from "./registration.js";
 import { fetchRegistrations } from "./fetchData.js";
-import { showData } from "./showDate.js";
+import { showData } from "./showData.js";
 import { registrationData } from "./app.js";
 
 export const loadData=()=> {

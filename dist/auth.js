@@ -38,12 +38,13 @@ function autExec(method) {
         userInfo.idToken = data.idToken;
         userInfo.loggedin = true;
         document.getElementById('loginSection').style.display = "none";
-        document.getElementById('dataSection').style.display = "block";
+        document.getElementById('dataSection').style.display = "flex";
+        document.getElementById('menu').style.display = "flex";
         loadData();
     })
         .catch((err) => {
         let errorDiv = document.getElementById('loginError');
-        errorDiv.style.display = "block";
+        errorDiv.style.display = "flex";
         errorDiv.innerHTML = err.message;
     });
 }

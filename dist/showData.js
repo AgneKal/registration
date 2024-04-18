@@ -5,7 +5,7 @@ export const showData = (registrationData) => {
     let resultTable = document.getElementById('resultTable');
     let resultEdit = document.getElementById('resultEdit');
     dataTableBody.innerHTML = '';
-    resultTable.style.display = 'block';
+    resultTable.style.display = 'flex';
     registrationData.forEach((reg) => {
         const tr = document.createElement('tr');
         const tdName = document.createElement('td');
@@ -20,7 +20,7 @@ export const showData = (registrationData) => {
         dataTableBody.appendChild(tr);
         tr.onclick = () => {
             resultTable.style.display = 'none';
-            resultEdit.style.display = 'block';
+            resultEdit.style.display = 'flex';
             document.getElementById('nameEdit').value = reg.name;
             document.getElementById('surnameEdit').value = reg.surname;
             document.getElementById('yearEdit').valueAsNumber = reg.birthYear;
@@ -52,7 +52,7 @@ export const showData = (registrationData) => {
                 })
                     .then((data) => {
                     console.log(data);
-                    resultTable.style.display = "block";
+                    resultTable.style.display = "flex";
                     resultEdit.style.display = "none";
                     loadData();
                 });
@@ -63,7 +63,7 @@ export const showData = (registrationData) => {
                     return response.json();
                 })
                     .then((data) => {
-                    resultTable.style.display = "block";
+                    resultTable.style.display = "flex";
                     resultEdit.style.display = "none";
                     loadData();
                 });

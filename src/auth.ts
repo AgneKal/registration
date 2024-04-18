@@ -39,12 +39,13 @@ function autExec (method:string) {
         userInfo.idToken = data.idToken;
         userInfo.loggedin = true;
         (<HTMLElement>document.getElementById('loginSection')).style.display = "none";
-        (<HTMLElement>document.getElementById('dataSection')).style.display = "block";
+        (<HTMLElement>document.getElementById('dataSection')).style.display = "flex";
+        (<HTMLElement>document.getElementById('menu')).style.display = "flex";
         loadData();
     })
     .catch((err:Error) => {
         let errorDiv = (<HTMLElement>document.getElementById('loginError'));
-        errorDiv.style.display = "block";
+        errorDiv.style.display = "flex";
         errorDiv.innerHTML = err.message;
     })
 }

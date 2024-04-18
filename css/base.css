@@ -1,0 +1,72 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url(/images/pexels-matthew-montrone-1179229.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    width: 100%;
+    background-color: #556b2fcc;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 80%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 6px 6px;
+    line-height: 1.5;
+    border: none;
+    border-bottom: 1px solid #4B3621;
+    background-color: #F6F0E8;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: #556B2F;
+}
+
+label {
+    font-size: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: auto;
+    color: #556B2F;
+    background-color: #F6F0E8;
+    border: none;
+    border: 2px solid #556B2F;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #556B2F;
+    color: #F6F0E8;
+    border: 2px solid #F6F0E8;
+}
+
+h2 {
+    font-size: 24px;
+    color: #4B3621;
+    font-weight: 600;
+    padding-bottom: 15px;
+}

@@ -1,0 +1,63 @@
+.leftContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.leftContainerChildInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.genders {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    color: #4B3621;
+
+}
+
+.genders label {
+    padding-right: 15px;
+    font-weight: 500;
+}
+
+#male,
+#female {
+    width: auto;
+    margin-right: 6px;
+    margin-bottom: 0;
+}
+
+.leftContainerContactInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.title {
+    width: 80%;
+    align-self: flex-start;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.rightContainer {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}

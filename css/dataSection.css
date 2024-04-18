@@ -1,0 +1,19 @@
+#dataSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    background-color: #d2b48cdd;
+    border: none;
+    border: 1px solid #d2b48cdd;
+    border-radius: 20px;
+}
+

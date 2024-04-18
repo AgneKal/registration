@@ -1,0 +1,28 @@
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px
+}
+
+#menu img {
+    height: 100px;
+}
+
+
+.fa-gear {
+    font-size: 40px;
+    color: #d2b48cdd;
+}
+
+.logo {
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+}

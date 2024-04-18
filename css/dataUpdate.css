@@ -1,0 +1,58 @@
+.resultEditCustomize {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultEditCustomize input {
+    width: 95%;
+}
+
+#resultEdit {
+    display: none;
+}
+
+#maleEdit,
+#femaleEdit {
+    width: auto;
+    margin-right: 6px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.genders label {
+    padding-bottom: 0;
+}
+
+.childInfoEdit {
+    padding-bottom: 20px;
+}
+
+.childInfoEdit label {
+    color: #4B3621;
+}
+
+.childInfoEdit label {
+    color: #4B3621;
+}
+
+.contactInfoEdit label {
+    color: #4B3621;
+}
+
+.editButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#deleteRegistration {
+    color: #ac4621;
+    border: 2px solid #ac4621;
+}
+
+#deleteRegistration:hover {
+    background-color: #ac4621;
+    color: #F6F0E8;
+    border: 2px solid #F6F0E8;
+}

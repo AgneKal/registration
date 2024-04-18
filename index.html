@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./dist/app.js"></script>
+</head>
+
+
+<header>
+    <div class="logo">
+        <img src="./images/logo.png" alt="camp logo">
+    </div>
+
+    <nav class="menu">
+        <a href=""><i class="fa-solid fa-gear"></i></a>
+        <a href=""><img src="images/user.svg" alt=""></a>
+    </nav>
+
+</header>
+
+<body>
+    <section id="loginSection">
+        <div class="loginContainer">
+            <h4>Prisijunkite arba registruokitės</h4>
+            <input type="email" name="loginEmail" id="loginEmail" placeholder="El. paštas">
+            <input type="password" name="loginPassword" id="loginPassword" placeholder="Slaptažodis">
+            <div id="loginError"></div>
+            <div class="loginButtons">
+                <button class="" id="loginBtn">Prisijungti</button>
+                <button class="" id="registerBtn">Registruotis</button>
+            </div>
+        </div>
+    </section>
+    <section id="dataSection">
+        <div class="mainContainer">
+            <div class="leftContainer">
+                <div class="leftContainerChildInfo">
+                    <p class="title">Įveskite vaiko duomenis:</p>
+                    <input type="text" placeholder="Vardas" id="name">
+                    <input type="text" placeholder="Pavardė" id="surname">
+                    <input type="number" placeholder="Gimimo metai" id="year">
+                    <div class="genders">
+                        <label for="gender" id="gender">Lytis:</label>
+                        <input type="radio" name="gender" value="male" id="male"><label for="male">Vaikinas</label>
+                        <input type="radio" name="gender" value="female" id="female"><label for="female">Mergina</label>
+                    </div>
+                </div>
+                <div class="leftContainerContactInfo">
+                    <p class="title">Įveskite kontaktinę informaciją:</p>
+                    <input type="email" placeholder="El. paštas" name="email" id="email">
+                    <input type="tel" placeholder="Telefono Nr." name="phone" pattern="+370-[0-9]{8}" required id="phone">
+                </div>
+                <button id="addRegistrationBtn">Registruoti</button>
+            </div>
+            <div class="rightContainer">
+                <button id="getData"> Atsisiųsti duomenis </button>
+                <div id="resultTable">
+                    <table class="center">
+                        <thead>
+                            <tr>
+                                <th>Vardas</th>
+                                <th>Pavardė</th>
+                                <th>Gimęs</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="resultEdit" class="resultEditCustumaize">
+                    <div class="childInfoEdit">
+                        <label for="nameEdit">Vardas:</label>
+                        <input type="text" placeholder="Vardas" id="nameEdit">
+
+                        <label for="surnameEdit">Pavardė:</label>
+                        <input type="text" placeholder="Pavardė" id="surnameEdit">
+
+                        <label for="yearEdit">Gimimo metai:</label>
+                        <input type="number" placeholder="Gimimo metai" id="yearEdit">
+
+                        <div class="genders">
+                            <label for="gender" id="genderEdit">Lytis:</label>
+                            <input type="radio" name="gender" value="male" id="maleEdit"><label for="maleEdit">Vaikinas</label>
+                            <input type="radio" name="gender" value="female" id="femaleEdit"><label for="femaleEdit">Mergina</label>
+                        </div>
+                    </div>
+                    <div class="contactInfoEdit">
+                        <label for="emailEdit">El. paštas:</label>
+                        <input type="email" placeholder="El. paštas" name="email" id="emailEdit">
+
+                        <label for="phoneEdit">Telefono Nr.</label>
+                        <input type="tel" placeholder="Telefono Nr." name="phone" pattern="+370-[0-9]{8}" required id="phoneEdit">
+                    </div>
+                    <button id="updateRegistration">Atnaujinti</button>
+                    <button id="deleteRegistration">Ištrinti</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

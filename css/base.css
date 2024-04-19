@@ -8,7 +8,7 @@ body * {
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-image: url(/images/pexels-matthew-montrone-1179229.jpg);
+    background-image: url(../images/pexels-matthew-montrone-1179229.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

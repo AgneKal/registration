@@ -1,7 +1,6 @@
 import { fetchRegistrations } from "./fetchData.js";
 import { loadData } from "./loadData.js";
 import { Registration } from "./registration.js";
-import { showData } from "./showData.js";
 
 const nameInput = <HTMLInputElement>document.getElementById('name');
 const surnameInput = <HTMLInputElement>document.getElementById('surname');
@@ -34,13 +33,13 @@ export const addRegistration = () => {
     .then ((data) => {
         return data
     })
-    nameInput.value="";
-    surnameInput.value="";
-    yearInput.value="";
+    nameInput.value = "";
+    surnameInput.value = "";
+    yearInput.value = "";
     maleCheck.checked = false;
     femaleCheck.checked = false;
-    emailInput.value="";
-    phoneInput.value="";
+    emailInput.value = "";
+    phoneInput.value = "";
     resultTable.style.display = 'none';
     loadData();
 }

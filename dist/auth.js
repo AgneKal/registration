@@ -33,6 +33,9 @@ function autExec(method) {
             if (data.error.message === "INVALID_LOGIN_CREDENTIALS") {
                 throw new Error("Neteisingi prisijungimo duomenys.");
             }
+            if (data.error.message === "EMAIL_NOT_FOUND") {
+                throw new Error("Nėra tokio el. pašto.");
+            }
         }
         userInfo.email = data.email;
         userInfo.idToken = data.idToken;
@@ -102,3 +105,47 @@ export function deleteAccount() {
 }
 document.getElementById('logOut').onclick = logOut;
 document.getElementById('deleteAccount').onclick = deleteAccount;
+export function updateUser(data) {
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCpRRP95g-fK5ob3qe8XWfE-Q3iAVjaTUM`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.assign(Object.assign({ idToken: userInfo.idToken }, data), { returnSecureToken: false }))
+    })
+        .then((response) => {
+        return response.json();
+    })
+        .then((result) => {
+        logOut();
+    });
+}
+document.getElementById('changePassword').onclick = () => {
+    if (document.getElementById('changePasswordSection').style.display === 'block') {
+        document.getElementById('changePasswordSection').style.display = 'none';
+    }
+    else {
+        document.getElementById('changePasswordSection').style.display = 'block';
+        document.getElementById('changePasswordBtn').onclick = () => {
+            let newPassword = document.getElementById('newPassword').value;
+            updateUser({ password: newPassword });
+            document.getElementById('newPassword').value = '';
+            document.getElementById('changePasswordSection').style.display = 'none';
+        };
+    }
+};
+document.getElementById('changeEmail').onclick = () => {
+    if (document.getElementById('changeEmailSection').style.display === 'block') {
+        document.getElementById('changeEmailSection').style.display = 'none';
+    }
+    else {
+        document.getElementById('changeEmailSection').style.display = 'block';
+        document.getElementById('changeEmailBtn').onclick = () => {
+            const newEmail = document.getElementById('newEmail').value;
+            updateUser({ email: newEmail });
+            document.getElementById('newEmail').value = '';
+            document.getElementById('changeEmailSection').style.display = 'none';
+        };
+    }
+};

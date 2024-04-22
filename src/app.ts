@@ -7,6 +7,8 @@ import { User } from "./user.js";
 export const registrationData:Registration[]=[];
 
 
+(<HTMLElement>document.getElementById('changeEmailSection')).style.display = 'none';
+(<HTMLElement>document.getElementById('changePasswordSection')).style.display = 'none';
 (<HTMLButtonElement>document.getElementById('addRegistrationBtn')).onclick = addRegistration;
 
 
@@ -19,7 +21,7 @@ export const userInfo:User = {
 showLogin();
 loadUser();
 
-(<HTMLButtonElement>document.getElementById('getData')).onclick = loadData;
+//(<HTMLButtonElement>document.getElementById('getData')).onclick = loadData;
 
 
 

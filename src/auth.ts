@@ -35,6 +35,9 @@ function autExec (method:string) {
             if (data.error.message === "INVALID_LOGIN_CREDENTIALS"){
                 throw new Error("Neteisingi prisijungimo duomenys.");
             }
+            if (data.error.message === "EMAIL_NOT_FOUND"){
+                throw new Error("Nėra tokio el. pašto.");
+            }
         }
         userInfo.email  = data.email;
         userInfo.idToken = data.idToken;
@@ -100,16 +103,67 @@ export function deleteAccount(){
                 'Content-Type':'application/json'
         },
         body: JSON.stringify({
-            idToken:userInfo.idToken
+            idToken: userInfo.idToken
         })
     })
-    .then((result)=>{
+    .then((result) => {
         return result.json();
     })
-    .then((data)=>{
+    .then((data) => {
         logOut();
     })
 }
 
 (<HTMLElement>document.getElementById('logOut')).onclick = logOut;
 (<HTMLElement>document.getElementById('deleteAccount')).onclick = deleteAccount;
+
+export function updateUser (data:{email?:string, password?:string}) {
+     fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCpRRP95g-fK5ob3qe8XWfE-Q3iAVjaTUM`,{
+            method:'POST',
+            headers:{
+                    'Accept':'application/json',
+                    'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                idToken: userInfo.idToken,
+                ...data,
+                returnSecureToken: false,
+            })
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            logOut()
+        });
+}
+
+(<HTMLElement>document.getElementById('changePassword')).onclick = () => {
+    if ((<HTMLElement>document.getElementById('changePasswordSection')).style.display === 'block') {
+        (<HTMLElement>document.getElementById('changePasswordSection')).style.display = 'none';
+    } else {
+        (<HTMLElement>document.getElementById('changePasswordSection')).style.display = 'block';
+        
+        (<HTMLButtonElement>document.getElementById('changePasswordBtn')).onclick = () => {
+            let newPassword = (<HTMLInputElement>document.getElementById('newPassword')).value;
+            updateUser({password:newPassword});
+            (<HTMLInputElement>document.getElementById('newPassword')).value = '';
+            (<HTMLElement>document.getElementById('changePasswordSection')).style.display = 'none';
+        }  
+    } 
+} 
+
+(<HTMLElement>document.getElementById('changeEmail')).onclick = () => {
+    if ((<HTMLElement>document.getElementById('changeEmailSection')).style.display === 'block') {
+        (<HTMLElement>document.getElementById('changeEmailSection')).style.display = 'none';
+    } else {
+        (<HTMLElement>document.getElementById('changeEmailSection')).style.display = 'block';
+        
+        (<HTMLButtonElement>document.getElementById('changeEmailBtn')).onclick = () => {
+            const newEmail = (<HTMLInputElement>document.getElementById('newEmail')).value;
+            updateUser({email:newEmail});
+            (<HTMLInputElement>document.getElementById('newEmail')).value = '';
+            (<HTMLElement>document.getElementById('changeEmailSection')).style.display = 'none';
+        }  
+    } 
+} 

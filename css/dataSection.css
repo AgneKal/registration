@@ -1,6 +1,12 @@
-#dataSection {
+/* #dataSection {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.dataSectionMainContainer{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -17,3 +23,29 @@
     border-radius: 20px;
 }
 
+@media (max-width: 860px) {
+    .mainContainer {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .leftContainer {
+        width: 95%!important;
+    }
+
+    .rightContainer {
+        width: 95% !important;
+    }
+
+    .center {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .resultEditCustomize {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+}

@@ -35,6 +35,10 @@ td {
     padding: 3px;
 }
 
+.tdCenter {
+    text-align: center;
+}
+
 tr {
     cursor: pointer;
 }

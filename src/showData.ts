@@ -8,7 +8,7 @@ export const showData = (registrationData: Registration[]) => {
     let resultEdit = <HTMLElement>document.getElementById('resultEdit');
 
     dataTableBody.innerHTML = '';
-    resultTable.style.display = 'flex';
+    resultTable.style.display = 'block';
 
     registrationData.forEach((reg) => {
         const tr = document.createElement('tr');
@@ -21,6 +21,7 @@ export const showData = (registrationData: Registration[]) => {
 
         const tdBirthYear = document.createElement('td');
         tdBirthYear.innerHTML = reg.birthYear.toString();
+        tdBirthYear.classList.add('tdCenter'); 
 
         tr.appendChild(tdName);
         tr.appendChild(tdSurname);
@@ -30,7 +31,7 @@ export const showData = (registrationData: Registration[]) => {
 
         tr.onclick=()=>{
             resultTable.style.display = 'none';
-            resultEdit.style.display = 'flex';
+            resultEdit.style.display = 'block';
 
             (<HTMLInputElement>document.getElementById('nameEdit')).value = reg.name;
             (<HTMLInputElement>document.getElementById('surnameEdit')).value = reg.surname;
@@ -63,7 +64,7 @@ export const showData = (registrationData: Registration[]) => {
                 })
                 .then((data)=>{
                     console.log(data);
-                    resultTable.style.display="flex";
+                    resultTable.style.display="block";
                     resultEdit.style.display="none";
                     loadData();
                 })

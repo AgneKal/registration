@@ -21,6 +21,19 @@ header {
     justify-content: space-between;
 }
 
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
 input {
     width: 80%;
     margin-bottom: 10px;

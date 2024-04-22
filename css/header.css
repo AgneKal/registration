@@ -1,17 +1,12 @@
-#menu {
+.menuContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    gap: 20px
+    gap: 20px;
+    padding: 30px;
 }
 
-#menu img {
-    height: 100px;
-}
-
-
-.fa-gear {
+.fa-solid {
     font-size: 40px;
     color: #d2b48cdd;
 }

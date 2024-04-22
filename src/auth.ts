@@ -1,5 +1,6 @@
-import { userInfo } from "./app.js"
+import { userInfo } from "./app.js";
 import { loadData } from "./loadData.js";
+import { User } from "./user.js";
 
 function autExec (method:string) {
     fetch(`https://identitytoolkit.googleapis.com/v1/accounts:${method}?key=AIzaSyCpRRP95g-fK5ob3qe8XWfE-Q3iAVjaTUM`, {
@@ -38,10 +39,9 @@ function autExec (method:string) {
         userInfo.email  = data.email;
         userInfo.idToken = data.idToken;
         userInfo.loggedin = true;
-        (<HTMLElement>document.getElementById('loginSection')).style.display = "none";
-        (<HTMLElement>document.getElementById('dataSection')).style.display = "flex";
-        (<HTMLElement>document.getElementById('menu')).style.display = "flex";
         loadData();
+        saveUser();
+        hideLogin();
     })
     .catch((err:Error) => {
         let errorDiv = (<HTMLElement>document.getElementById('loginError'));
@@ -57,3 +57,59 @@ export function loginExsec() {
 export function registerExsec() {
     autExec('signUp');
 }
+
+export function saveUser(){
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+}
+
+export function loadUser(){
+    const userStr = localStorage.getItem('userInfo');
+    if(userStr != null) {
+        const user:User = JSON.parse(userStr);
+        userInfo.email = user.email;
+        userInfo.idToken = user.idToken;
+        userInfo.loggedin = user.loggedin;
+        loadData();
+        hideLogin();
+    }
+}
+
+export function showLogin() {
+    (<HTMLElement>document.getElementById('loginSection')).style.display = "block";
+    (<HTMLElement>document.getElementById('dataSection')).style.display = "none";
+    (<HTMLElement>document.getElementById('menu')).style.display = "none";
+}
+
+export function hideLogin() {
+    (<HTMLElement>document.getElementById('loginSection')).style.display = "none";
+    (<HTMLElement>document.getElementById('dataSection')).style.display = "block";
+    (<HTMLElement>document.getElementById('menu')).style.display = "block";
+}
+
+export function logOut(){
+    localStorage.removeItem('userInfo');
+    showLogin();
+    (<HTMLElement>document.getElementById('loginError')).style.display = "none";
+}
+
+export function deleteAccount(){
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyCpRRP95g-fK5ob3qe8XWfE-Q3iAVjaTUM`,{
+        method:'POST',
+        headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+            idToken:userInfo.idToken
+        })
+    })
+    .then((result)=>{
+        return result.json();
+    })
+    .then((data)=>{
+        logOut();
+    })
+}
+
+(<HTMLElement>document.getElementById('logOut')).onclick = logOut;
+(<HTMLElement>document.getElementById('deleteAccount')).onclick = deleteAccount;

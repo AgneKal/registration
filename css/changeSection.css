@@ -1,0 +1,17 @@
+.changeInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#newEmail, #newPassword {
+    width: 50%;
+}
+
+@media (max-width: 860px) {
+    #newEmail, #newPassword {
+        width: 80%;
+    }
+}

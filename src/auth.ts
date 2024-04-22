@@ -36,7 +36,13 @@ function autExec (method:string) {
                 throw new Error("Neteisingi prisijungimo duomenys.");
             }
             if (data.error.message === "EMAIL_NOT_FOUND"){
-                throw new Error("Nėra tokio el. pašto.");
+                throw new Error("Nėra tokio el. pašto. Užsiregistruokite.");
+            }
+            if (data.error.message === "MISSING_PASSWORD"){
+                throw new Error("Neįrašytas slaptažodis.");
+            }
+            if (data.error.message === "INVALID_PASSWORD"){
+                throw new Error("Neteisingas slaptažodis.");
             }
         }
         userInfo.email  = data.email;

@@ -46,3 +46,13 @@ tr {
 tr:hover {
     background-color: #F6F0E8;
 }
+
+@media (max-width: 860px) {
+    th {
+    font-size: 20px;
+    }
+    
+    td {
+        font-size: 18px;
+    }
+}

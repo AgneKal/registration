@@ -21,3 +21,28 @@
 .logo img {
     height: 100px;
 }
+
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 860px) {
+    ul {
+        gap: 15px;
+    }
+        
+    .fa-solid {
+        font-size: 30px;
+    }
+}
